@@ -1,0 +1,91 @@
+:root {
+  --primary-color: #4f46e5;
+  --accent-color: #0f172a;
+  --highlight-color: #818cf8;
+  --text-muted: #94a3b8;
+}
+
+.wrapper {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  color: white;
+  background-color: var(--accent-color);
+  min-height: 100vh;
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+.badge {
+  display: inline-block;
+  background-color: rgba(79, 70, 229, 0.2);
+  color: var(--highlight-color);
+  border: 1px solid rgba(129, 140, 248, 0.3);
+  border-radius: 99px;
+  padding: 6px 16px;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  margin: 0 0 16px;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+
+  & span {
+    color: var(--highlight-color);
+  }
+}
+
+.subtitle {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  max-width: 480px;
+  line-height: 1.7;
+  margin: 0 0 40px;
+}
+
+.buttons {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  & a {
+    text-decoration: none;
+    font-weight: 600;
+    padding: 12px 28px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 0.85;
+    }
+  }
+}
+
+.btnPrimary {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.btnSecondary {
+  background-color: transparent;
+  color: var(--highlight-color);
+  border: 1px solid rgba(129, 140, 248, 0.4);
+}
+
+.footer {
+  margin-top: 60px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
