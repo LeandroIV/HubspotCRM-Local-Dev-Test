@@ -28,6 +28,7 @@ dist/
 build/
 .cache/
 .turbo/
+.vite/
 
 # Environment variables
 .env
