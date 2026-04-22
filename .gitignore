@@ -1,0 +1,42 @@
+
+# HubSpot config (contains portal IDs and auth tokens)
+hubspot.config.yml
+hubspot.config.yaml
+*.hubspot.config.yml
+*.hubspot.config.yaml
+
+# HubSpot CLI auto-generated
+.hsignore
+.hub/
+hubspot_temp/
+local.json
+
+# Node / npm
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm/
+.yarn/
+.pnp.*
+
+# Build output
+dist/
+build/
+.cache/
+.turbo/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+.vscode/settings.json
+.idea/
+
+# Logs
+logs/
+*.log

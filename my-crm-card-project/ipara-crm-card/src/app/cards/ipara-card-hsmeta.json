@@ -1,0 +1,10 @@
+{
+  "uid": "ipara_crm_card",
+  "type": "card",
+  "config": {
+    "name": "iPara CRM Card",
+    "entrypoint": "/app/cards/IparaCard.jsx",
+    "location": "crm.record.tab",
+    "objectTypes": ["contacts"]
+  }
+}

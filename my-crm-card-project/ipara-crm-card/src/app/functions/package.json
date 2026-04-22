@@ -1,0 +1,7 @@
+{
+  "name": "ipara-crm-functions",
+  "version": "1.0.0",
+  "description": "iPara CRM serverless functions",
+  "private": true,
+  "dependencies": {}
+}

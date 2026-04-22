@@ -1,0 +1,10 @@
+{
+  "name": "ipara-crm-card-ui",
+  "version": "1.0.0",
+  "description": "iPara CRM UI Extension Card",
+  "private": true,
+  "dependencies": {
+    "@hubspot/ui-extensions": "latest",
+    "react": "^18"
+  }
+}

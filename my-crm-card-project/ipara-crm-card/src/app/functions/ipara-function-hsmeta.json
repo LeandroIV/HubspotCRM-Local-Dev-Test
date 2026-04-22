@@ -1,0 +1,7 @@
+{
+  "uid": "ipara_crm_function",
+  "type": "app-function",
+  "config": {
+    "entrypoint": "/app/functions/index.js"
+  }
+}
