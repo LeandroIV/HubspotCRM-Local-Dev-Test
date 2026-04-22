@@ -11,6 +11,9 @@ hubspot.config.yaml
 hubspot_temp/
 local.json
 
+# OAuth install helper (contains client secret)
+oauth-install.js
+
 # Node / npm
 node_modules/
 npm-debug.log*

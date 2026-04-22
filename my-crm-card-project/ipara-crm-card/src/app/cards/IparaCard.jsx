@@ -9,41 +9,47 @@ import {
   Alert,
 } from "@hubspot/ui-extensions";
 
-hubspot.extend(({ context, runServerlessFunction }) => (
-  <IparaCard runServerless={runServerlessFunction} context={context} />
+hubspot.extend(({ context, actions }) => (
+  <IparaCard context={context} actions={actions} />
 ));
 
-const IparaCard = ({ runServerless, context }) => {
-  const [message, setMessage] = useState(null);
+const IparaCard = ({ context }) => {
+  const [contact, setContact] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const fetchData = async () => {
+  const fetchContact = async () => {
     setLoading(true);
     setError(null);
     try {
-      const result = await runServerless({
-        name: "main",
-        parameters: { objectId: context.crm.objectId },
-      });
-      setMessage(result.response.message);
+      const objectId = context.crm.objectId;
+      const response = await hubspot.fetch(
+        `https://api.hubapi.com/crm/v3/objects/contacts/${objectId}?properties=firstname,lastname,email`
+      );
+      const data = await response.json();
+      setContact(data.properties);
     } catch (e) {
-      setError("Something went wrong. Please try again.");
+      setError("Failed to load contact data. Please try again.");
     } finally {
       setLoading(false);
     }
   };
 
-  if (loading) return <LoadingSpinner label="Loading..." />;
+  if (loading) return <LoadingSpinner label="Loading contact..." />;
 
   return (
     <>
       <Heading>iPara CRM Card</Heading>
       <Divider />
       {error && <Alert title="Error" variant="error">{error}</Alert>}
-      {message && <Text>{message}</Text>}
-      <Button onClick={fetchData} variant="primary">
-        Run Function
+      {contact && (
+        <>
+          <Text>Name: {contact.firstname} {contact.lastname}</Text>
+          <Text>Email: {contact.email}</Text>
+        </>
+      )}
+      <Button onClick={fetchContact} variant="primary">
+        Load Contact Info
       </Button>
     </>
   );
