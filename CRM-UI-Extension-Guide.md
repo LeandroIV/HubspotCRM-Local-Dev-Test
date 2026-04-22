@@ -210,7 +210,26 @@ hs project upload
 hs project dev
 ```
 
+> **Note (OAuth apps):** `hs project dev` requires the app to be installed first.
+> Run `node oauth-install.js` once to complete the OAuth install, then `hs project dev` will work.
+> `oauth-install.js` is in `.gitignore` — never commit it as it contains your Client Secret.
+
 Then in HubSpot → open any **Contact record** → your card will appear under the tab you configured.
+
+---
+
+## Known Limitations (OAuth + CRM Cards)
+
+- **`app-function` (serverless)** is NOT available for OAuth apps on CRM cards — static auth only
+- **`hubspot.fetch` to `api.hubapi.com`** fails with a 488 error if your account is on the `na2` hublet — HubSpot routes unauthenticated fetches to na1 by default
+- **Best practice for OAuth cards:** read data from `context` directly (no API call needed for basic CRM data), or proxy through your own backend server that holds the OAuth refresh token
+
+```jsx
+// Read CRM data directly from context — no API call needed
+const objectId = context.crm?.objectId;
+const portalId = context.portal?.id;
+const userId = context.user?.id;
+```
 
 ---
 
